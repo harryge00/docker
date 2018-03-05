@@ -139,6 +139,7 @@ func setupIPTablesInternal(bridgeIface string, addr net.Addr, icc, ipmasq, hairp
 		inRule    = iptRule{table: iptables.Filter, chain: "FORWARD", args: []string{"-o", bridgeIface, "-m", "conntrack", "--ctstate", "RELATED,ESTABLISHED", "-j", "ACCEPT"}}
 	)
 
+	logrus.Debugf("ipmasqqqqqqqqqqqqq %v", ipmasq)
 	// Set NAT.
 	if ipmasq {
 		if err := programChainRule(natRule, "NAT", enable); err != nil {
